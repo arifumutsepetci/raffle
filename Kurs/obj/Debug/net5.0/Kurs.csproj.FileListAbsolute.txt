@@ -1,0 +1,16 @@
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.exe
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.deps.json
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.runtimeconfig.json
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.runtimeconfig.dev.json
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.dll
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\ref\Kurs.dll
+D:\Projects\C#Kurs\Kurs\Kurs\bin\Debug\net5.0\Kurs.pdb
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.csproj.AssemblyReference.cache
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.AssemblyInfoInputs.cache
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.AssemblyInfo.cs
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.csproj.CoreCompileInputs.cache
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.dll
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\ref\Kurs.dll
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.pdb
+D:\Projects\C#Kurs\Kurs\Kurs\obj\Debug\net5.0\Kurs.genruntimeconfig.cache
