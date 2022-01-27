@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Hediye Çekilişi</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <style>
+        body{
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f2f2f2;
+        }
+        .content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        #hediyeContent{
+            margin:auto;
+            height: 350px;
+            width: 350px;
+            position:fixed;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+        #rules{
+            margin:auto;
+            height: 350px;
+            width: 350px;
+            position:fixed;
+            left:0;
+            right:0;
+        }
+        #getir {
+            margin-left: 25px;
+            height: 36px;
+            width: 78px;
+            background-color: #D91828;
+            border-radius: 10px;
+            border: none;
+            color: f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+
+        function checkFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+            
+            if (xhr.status == "404") {
+                return false;
+            } else {
+                return true;
+            }
+        }
+ 
+
+        function hediyeGetir(){
+            let baseString =  window.location.host + window.location.pathname;  
+            let kullaniciGuid = $('#guid').val().toLowerCase().split(' ').join('');
+            let file = kullaniciGuid + '.txt';
+            let urlToFile = baseString + file
+            if(kullaniciGuid !== ""){
+                if(checkFileExist(urlToFile)){
+                    jQuery.get((file), function(data){
+                        if(data){
+                            let bilgiler = data.split(',');
+                            let isim = bilgiler[1].toString();
+                            let hediyeAlinicakKisi = bilgiler[2].toString();
+                            console.log(isim);
+                            console.log(hediyeAlinicakKisi);
+                            $("#lbKullaniciAdi").empty();
+                            $("#lbKullaniciAdi").append("Adınız: " + isim);
+                            $("#lbHediyeAlinicakKisi").empty();
+                            $("#lbHediyeAlinicakKisi").append("Sizden hediye alacak şanslı kişi: " + hediyeAlinicakKisi);
+                        }
+                        else{
+                            window.alert("Lütfen geçerli bir şifre giriniz.")
+                        }
+                    })
+                }
+                else{
+                    window.alert("Lütfen geçerli bir şifre giriniz.")
+                }
+            }
+            else{
+                window.alert("Lütfen geçerli bir şifre giriniz.")
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="hediyeContent" class="col-md-5">
+        <div class="panel panel-default" >
+            <div class="panel-heading" style="background-color:#F2A7AD ; display:flex; justify-content: space-between; ">
+                    <b class="panel-title" style="color: #f2f2f2;">
+                        Hediye Çekilişi
+                    </b>
+                    <button type="button" class="btn btn-xs" style="background-color: #D9969B; color: #f2f2f2; text-align: end;" data-toggle="modal" data-target="#myModal">&#x1F6C8</button>
+            </div>
+            <div class="panel-body"  >
+                <div>
+                    <input style="height: 36px;width: 180px;" id="guid" class="textbox" placeholder="Şifrenizi giriniz..." >
+                    <button type="button" id="getir" style="background-color: #D91828; color: #f2f2f2;" onclick="hediyeGetir()">Getir</button>
+                    <hr>
+                    <label id="lbKullaniciAdi"></label>
+                    <label id="lbHediyeAlinicakKisi"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nasıl Kullanılır?</h4>
+              </div>
+              <div class="modal-body">
+                  <ul>
+                      <li>
+                            Size gönderilen şifreyi ilgili alana yazın ve getire basın.
+                      </li>
+                      <li>
+                         <b> Adınız</b> kısmında <b>kendi adınızı</b> görmeniz gerekmektedir. Başka bir isim görüyorsanız lütfen haber veriniz.
+                      </li>
+                      <li>
+                        <b> Sizden hediye alacak şanslı kişi</b> size çıkan şanslı kişidir.
+                      </li>
+                      <li>
+                        <i style='font-size:24px;' >&#x26A0;</i> <b>Şifrenizi kimseyle paylaşmayınız!</b>
+                      </li>
+                  </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html> 
